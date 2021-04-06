@@ -7,7 +7,7 @@ function Footer1() {
       console.log(obj)
     },[obj])
     return (<>
-        {obj===null || obj===undefined  ? '' : 
+        {obj===null || obj===undefined  ? 'Submit the form to see results here' : 
         <>
         {obj.uname}
         {obj.pass}

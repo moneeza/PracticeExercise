@@ -7,9 +7,9 @@ import { InputNumber } from 'antd';
 import { Cascader, Select } from 'antd';
 import { DatePicker, Space } from 'antd';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
-import Footer1 from './Footer1'
-import { Link, Router } from 'react-router-dom';
 
+import { createBrowserHistory } from 'history';
+import { useHistory } from 'react-router';
 
 
 const layout = {
@@ -31,7 +31,7 @@ export default function App1() {
   const [form] = Form.useForm();
   const dispatch = useDispatch()
   const [current, setCurrent] = useState("mail")
-
+  const history= useHistory()
   const onGenderChange = (value: any) => {
     switch (value) {
       case 'male':
@@ -67,7 +67,9 @@ export default function App1() {
       uname: values.username, pass: values.password, amount: values.amount, cascader: values.cascader[values.cascader.length - 1],
       dob: JSON.stringify(values.dateOfBirth["_d"]), note: values.note, gender: values.gender
     }
+
     dispatch({ type: "Submit", payload: obj })
+    history.push("/comp2")
   };
   const options = [
     {
