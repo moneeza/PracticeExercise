@@ -36,7 +36,7 @@ export default function App() {
 
                 </Switch>
             </Content>
-            <Footer></Footer>
+            <Footer className="mt-3"></Footer>
 
         </Router>
 

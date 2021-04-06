@@ -31,7 +31,8 @@ export default function App1() {
   const [form] = Form.useForm();
   const dispatch = useDispatch()
   const [current, setCurrent] = useState("mail")
-  const history= useHistory()
+  const history = useHistory()
+  const [load, setLoad] = useState(false)
   const onGenderChange = (value: any) => {
     switch (value) {
       case 'male':
@@ -63,13 +64,19 @@ export default function App1() {
     });
   };
   const onFinish = (values: any) => {
+    setLoad(true)
     const obj = {
       uname: values.username, pass: values.password, amount: values.amount, cascader: values.cascader[values.cascader.length - 1],
       dob: JSON.stringify(values.dateOfBirth["_d"]), note: values.note, gender: values.gender
     }
+    setTimeout(() => {
+      dispatch({ type: "Submit", payload: obj })
 
-    dispatch({ type: "Submit", payload: obj })
-    history.push("/comp2")
+      setLoad(false)
+      history.push("/comp2")
+
+    }, 5000)
+
   };
   const options = [
     {
@@ -143,7 +150,7 @@ export default function App1() {
   return (
     <>
 
-      <Form className="d-flex flex-column align-items-center justify-content-center mt-5"
+      <Form className="d-flex flex-column align-items-center justify-content-center my-5"
         {...layout}
         name="basic"
         initialValues={{
@@ -155,6 +162,7 @@ export default function App1() {
       >
         <Form.Item
           label="Username"
+          className="my-3 w-50"
           name="username"
           tooltip="please write something"
           rules={[
@@ -171,6 +179,8 @@ export default function App1() {
         <Form.Item
           label="Password"
           name="password"
+          className="my-3 w-50"
+
           rules={[
             {
               required: true,
@@ -183,6 +193,8 @@ export default function App1() {
 
 
         <Form.Item label="amount" name="amount"
+          className="my-3 w-50"
+
           rules={
             [
               {
@@ -198,7 +210,8 @@ export default function App1() {
             onChange={onChange}
           />
         </Form.Item>
-        <Form.Item label="Cascader" name="cascader">
+        <Form.Item label="Cascader" name="cascader" className="my-3 w-50"
+        >
           <Cascader
             options={options}
             expandTrigger="hover"
@@ -207,6 +220,7 @@ export default function App1() {
         </Form.Item>
         <Form.Item
           name="note"
+          className="w-50 my-3"
           label="Note"
           rules={[
             {
@@ -219,6 +233,8 @@ export default function App1() {
         <Form.Item
           name="gender"
           label="Gender"
+          className="my-3 w-50"
+
           rules={[
             {
               required: true,
@@ -235,11 +251,15 @@ export default function App1() {
             <Select.Option value="other">other</Select.Option>
           </Select>
         </Form.Item>
-        <Form.Item name="dateOfBirth" label="dateOfBirth" rules={[{ required: true }]}>
+        <Form.Item name="dateOfBirth" label="dateOfBirth" rules={[{ required: true }]}
+
+          className="my-3 w-50"
+
+        >
           <DatePicker onChange={onChange} />
         </Form.Item>
         <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" shape="round" loading={load}>
             Submit
               </Button>
         </Form.Item>
