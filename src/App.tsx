@@ -33,6 +33,7 @@ export default function App1() {
   const [current, setCurrent] = useState("mail")
   const history = useHistory()
   const [load, setLoad] = useState(false)
+  const [uname, setUname] = useState("")
   const onGenderChange = (value: any) => {
     switch (value) {
       case 'male':
@@ -63,6 +64,9 @@ export default function App1() {
       gender: 'male',
     });
   };
+  const onNameChange = (e:any) =>{
+    setUname(e.target.value)
+  }
   const onFinish = (values: any) => {
     setLoad(true)
     const obj = {
@@ -173,7 +177,7 @@ export default function App1() {
           ]}
 
         >
-          <Input />
+          <Input value={uname} onChange={(e:any)=>onNameChange(e)}/>
         </Form.Item>
 
         <Form.Item
@@ -243,8 +247,8 @@ export default function App1() {
         >
           <Select
             placeholder="Select a option and change input text above"
-            onChange={onGenderChange}
-            allowClear
+            onChange={onGenderChange}   
+            allowClear 
           >
             <Select.Option value="male">male</Select.Option>
             <Select.Option value="female">female</Select.Option>
