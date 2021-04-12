@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.ant-layout-footer{
+  background: blue !important;
+  text-align: center;
+  color:white !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.ant-layout-header{
+  background: blue !important;
+  text-align: center;
+  color:white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
