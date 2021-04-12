@@ -1,6 +1,6 @@
 import { Switch, Route, Redirect, } from 'react-router-dom'
-import Forms from '../Forms'
-import Results from '../Results'
+import Forms from '../SeperateComponents/Forms'
+import Results from '../SeperateComponents/Results'
 import { Layout} from 'antd';
 
 
