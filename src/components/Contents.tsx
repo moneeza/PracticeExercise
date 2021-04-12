@@ -1,7 +1,7 @@
 import { Switch, Route, Redirect, } from 'react-router-dom'
-import Forms from '../SeperateComponents/Forms'
-import Results from '../SeperateComponents/Results'
-import { Layout} from 'antd';
+import Forms from './SeperateComponents/Forms'
+import Results from './SeperateComponents/Results'
+import { Layout } from 'antd';
 
 
 export default function Contents() {
