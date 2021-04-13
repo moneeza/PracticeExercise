@@ -13,6 +13,8 @@ function Results() {
         obj.uname === undefined ?
           <p>Submit the form to see results here</p> :
           <React.Fragment>
+            <p>Form results are as follows</p> :
+
             <ul>
               <li>{obj.uname}</li>
               <li>{obj.pass}</li>
