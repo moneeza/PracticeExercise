@@ -36,13 +36,14 @@ describe('Results component', () => {
     //     }, 100)
 
     // });
-    it('must contain list', () => {
+    it('must contain sentence', () => {
         const wrapper = shallow(<Provider store={store}><Results /></Provider>)
+        expect(wrapper.find('p').length).toEqual(0)
+    })
 
-        expect(wrapper.find('p').length).toEqual(1)
-
-
-
+    it('must contain a list elemen', () => {
+        const wrapper = shallow(<Provider store={store}><Results /></Provider>)
+        expect(wrapper.find('ul').length).toEqual(0)
     })
     // it('dropdown test', () => {
     //     const wrapper = shallow(<Provider store={store}><Forms /></Provider>)
