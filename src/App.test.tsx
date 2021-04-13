@@ -1,5 +1,5 @@
 import React from 'react';
-import App1 from './Form';
+import Forms from './components/SeperateComponents/Forms';
 import { shallow, configure, mount } from 'enzyme'
 import Adapter from "enzyme-adapter-react-16"
 import { Provider } from 'react-redux';

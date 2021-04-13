@@ -4,6 +4,7 @@ import Results from './SeperateComponents/Results'
 import { Layout } from 'antd';
 
 
+
 export default function Contents() {
     const { Content } = Layout;
     return (<Content>
@@ -14,3 +15,4 @@ export default function Contents() {
         </Switch>
     </Content>)
 }
+
