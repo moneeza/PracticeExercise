@@ -19,4 +19,5 @@ describe('App1', () => {
   it("renders without crashing", () => {
     shallow(<Provider store={store}><App /></Provider>);
   });
-  })
+
+})

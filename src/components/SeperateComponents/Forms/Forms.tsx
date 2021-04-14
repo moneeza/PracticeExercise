@@ -178,6 +178,7 @@ export default function Forms() {
         >
           <Input.Password />
         </Form.Item>
+        <input value={uname}  placeholder="write something"/>
 
 
         <Form.Item label="amount" name="amount"
@@ -192,7 +193,7 @@ export default function Forms() {
             ]
           } >
           <InputNumber
-            defaultValue={1000}
+            value={1000}
             formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             parser={(value: any) => value.replace(/\$\s?|(,*)/g, '')}
             onChange={onChange}
