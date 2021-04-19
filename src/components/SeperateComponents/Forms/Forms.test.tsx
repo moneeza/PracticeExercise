@@ -23,6 +23,8 @@ describe('Forms component', () => {
         const wrapper = mount(<Provider store={store}><Forms /></Provider>);
         expect(wrapper.exists()).toBe(true);
     })
+
+    
     it('should call onChange prop', () => {
         const wrapper = mount(<Provider store={store}><Forms /></Provider>);
         const input = wrapper.find('Input').at(0)
