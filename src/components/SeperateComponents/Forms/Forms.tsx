@@ -176,9 +176,8 @@ export default function Forms() {
             },
           ]}
         >
-          <Input.Password />
+          <Input.Password value={uname} onChange={(e: any) => onNameChange(e)} />
         </Form.Item>
-        <input value={uname}  placeholder="write something"/>
 
 
         <Form.Item label="amount" name="amount"
@@ -194,9 +193,9 @@ export default function Forms() {
           } >
           <InputNumber
             value={1000}
+            onChange={(e: any) => onNameChange(e)}
             formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             parser={(value: any) => value.replace(/\$\s?|(,*)/g, '')}
-            onChange={onChange}
           />
         </Form.Item>
         <Form.Item label="Cascader" name="cascader" className="my-3 w-50"
