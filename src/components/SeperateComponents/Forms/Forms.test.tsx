@@ -24,24 +24,22 @@ describe('Forms component', () => {
         expect(wrapper.exists()).toBe(true);
     })
 
-    
-    it('should call onChange prop', () => {
+
+    it('should call onChange prop on 1st input', () => {
         const wrapper = mount(<Provider store={store}><Forms /></Provider>);
-        const input = wrapper.find('Input').at(0)
-        console.log(input)
-        input.simulate('change', { target: { val: "moneeza@abc.com" } })
-        // const val = input.props()
-        const val = wrapper.find("Input").get(0).props().value
-        console.log(val)
+        const input1 = wrapper.find('input').at(0)
+        input1.simulate('change', { target: { value: "moneeza@abc.com" } })
+        const input2 = wrapper.find('input').at(1)
+        input2.simulate('change', { target: { value: "abc@123" } })
+        const input3 = wrapper.find('input').at(2)
+        input3.simulate('change', { target: { value: "abc@123" } })
+        const form = wrapper.find('form')
+        const input4 = wrapper.find("Cascader").at(0)
+        const input5 = wrapper.find("Select").at(0).props().value
+        input5.simulate("change", { target: { value: "female" } })
+        console.log(input5)
+        wrapper.update()
     });
-    it('should call onChange prop', () => {
-        const wrapper = mount(<Provider store={store}><Forms /></Provider>);
-        const input = wrapper.find('select')
-        expect(input.props().value).toBe("")
-    })
-
-
-
     it('should display an error', () => {
         const wrapper = mount(<Provider store={store}><Forms /></Provider>);
         const form = wrapper.find('form')

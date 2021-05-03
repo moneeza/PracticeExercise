@@ -161,9 +161,8 @@ export default function Forms() {
           ]}
 
         >
-          <Input value={uname} onChange={(e: any) => onNameChange(e)} />
+          <Input />
         </Form.Item>
-
         <Form.Item
           label="Password"
           name="password"
@@ -176,7 +175,7 @@ export default function Forms() {
             },
           ]}
         >
-          <Input.Password value={uname} onChange={(e: any) => onNameChange(e)} />
+          <Input.Password />
         </Form.Item>
 
 
@@ -193,7 +192,7 @@ export default function Forms() {
           } >
           <InputNumber
             value={1000}
-            onChange={(e: any) => onNameChange(e)}
+
             formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             parser={(value: any) => value.replace(/\$\s?|(,*)/g, '')}
           />
